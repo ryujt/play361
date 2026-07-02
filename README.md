@@ -1,8 +1,11 @@
 # play361 (local)
 
-`baduk-game` 프로젝트의 **완전 로컬 실행 클론**. AWS 중계(Lambda · SQS · DynamoDB · CloudFront) 없이 이 컴퓨터 한 대에서 프론트엔드 · 백엔드 · KataGo 서버가 모두 실행되어 바둑 대국을 즐길 수 있다.
+> 🌐 **AWS 중계를 통해 게임을 테스트하려면 https://play361.com/ 사이트를 방문하세요.**
+> 이 저장소는 AWS 없이 로컬에서 실행하는 버전입니다.
 
-UI와 게임 기능은 원본 `baduk-game`을 그대로 사용하며, AWS 전송 계층만 로컬 HTTP로 치환했다.
+`play361.com` 프로젝트의 **완전 로컬 실행 클론**. AWS 중계(Lambda · SQS · DynamoDB · CloudFront) 없이 이 컴퓨터 한 대에서 프론트엔드 · 백엔드 · KataGo 서버가 모두 실행되어 바둑 대국을 즐길 수 있다.
+
+UI와 게임 기능은 원본 `play361.com`을 그대로 사용하며, AWS 전송 계층만 로컬 HTTP로 치환했다.
 
 ## 구조
 

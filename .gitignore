@@ -5,6 +5,9 @@ node_modules/
 frontend/dist/
 dist/
 
+# Vite cache
+.vite/
+
 # Go binary
 katago-server/katago-server
 

@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+frontend/dist/
+dist/
+
+# Go binary
+katago-server/katago-server
+
+# Local game state store
+backend/data/
+
+# Logs
+logs/
+*.log
+
+# Test / tooling artifacts
+.playwright-mcp/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

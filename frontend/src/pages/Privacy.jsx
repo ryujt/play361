@@ -1,0 +1,96 @@
+const sectionStyle = {
+  marginTop: '2rem',
+};
+
+const headingStyle = {
+  fontSize: '1.1rem',
+  fontWeight: 700,
+  color: '#dee3eb',
+  marginBottom: '0.5rem',
+};
+
+const textStyle = {
+  fontSize: '0.95rem',
+  lineHeight: 1.8,
+  color: '#a0a8b0',
+};
+
+const containerStyle = {
+  maxWidth: 640,
+  margin: '0 auto',
+  padding: '40px 20px',
+  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+  background: '#0f141a',
+  minHeight: '100vh',
+};
+
+export default function Privacy() {
+  return (
+    <div style={containerStyle}>
+      <h1 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#59de9b', marginBottom: '0.5rem' }}>
+        play361 개인정보 처리방침
+      </h1>
+      <p style={{ ...textStyle, fontSize: '0.85rem' }}>시행일: 2026년 4월 4일</p>
+
+      <div style={sectionStyle}>
+        <h2 style={headingStyle}>1. 수집하는 정보</h2>
+        <p style={textStyle}>
+          play361은 서비스 제공을 위해 최소한의 정보만을 처리합니다.
+        </p>
+        <ul style={textStyle}>
+          <li>임의 생성된 세션 ID (UUID) — 게임 저장 및 불러오기 용도</li>
+          <li>게임 상태 데이터 (바둑판 배치, 수순, 설정값)</li>
+        </ul>
+        <p style={textStyle}>
+          개인을 식별할 수 있는 정보(이름, 이메일, 위치 등)는 수집하지 않습니다.
+          계정 생성이나 로그인 절차가 없습니다.
+        </p>
+      </div>
+
+      <div style={sectionStyle}>
+        <h2 style={headingStyle}>2. 데이터 저장 및 보관</h2>
+        <p style={textStyle}>
+          게임 상태는 AWS DynamoDB에 세션 ID 기반으로 저장되며,
+          마지막 접속일로부터 7일 후 자동 삭제(TTL)됩니다.
+          게임을 종료하면 해당 세션의 데이터는 즉시 삭제됩니다.
+        </p>
+      </div>
+
+      <div style={sectionStyle}>
+        <h2 style={headingStyle}>3. 제3자 제공</h2>
+        <p style={textStyle}>
+          수집된 데이터를 제3자에게 판매, 공유, 제공하지 않습니다.
+        </p>
+      </div>
+
+      <div style={sectionStyle}>
+        <h2 style={headingStyle}>4. 쿠키 및 추적</h2>
+        <p style={textStyle}>
+          play361은 쿠키를 사용하지 않습니다.
+          브라우저의 localStorage에 세션 ID, 급수, 음소거 설정만 저장합니다.
+        </p>
+      </div>
+
+      <div style={sectionStyle}>
+        <h2 style={headingStyle}>5. 아동 개인정보</h2>
+        <p style={textStyle}>
+          play361은 만 14세 미만 아동의 개인정보를 의도적으로 수집하지 않습니다.
+        </p>
+      </div>
+
+      <div style={sectionStyle}>
+        <h2 style={headingStyle}>6. 변경 사항</h2>
+        <p style={textStyle}>
+          본 방침이 변경될 경우 이 페이지를 통해 공지합니다.
+        </p>
+      </div>
+
+      <div style={sectionStyle}>
+        <h2 style={headingStyle}>7. 문의</h2>
+        <p style={textStyle}>
+          개인정보 관련 문의: <a href="mailto:ryujt658@gmail.com" style={{ color: '#59de9b' }}>ryujt658@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  );
+}

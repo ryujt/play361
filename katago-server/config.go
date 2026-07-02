@@ -14,7 +14,7 @@ type Config struct {
 
 func LoadConfig() *Config {
 	return &Config{
-		ListenAddr:       getEnvOrDefault("LISTEN_ADDR", ":4001"),
+		ListenAddr:       getEnvOrDefault("LISTEN_ADDR", ":8789"),
 		KataGoPath:       getEnvOrDefault("KATAGO_PATH", "/opt/homebrew/bin/katago"),
 		KataGoModel:      getEnvOrDefault("KATAGO_MODEL", "/opt/homebrew/share/katago/kata1-b18c384nbt-s9996604416-d4316597426.bin.gz"),
 		KataGoHumanModel: os.Getenv("KATAGO_HUMAN_MODEL"),

@@ -4,7 +4,7 @@ import { validateGenmoveRequest, validateScoreRequest } from './validator.mjs';
 import { sendToKataGo } from './katago-client.mjs';
 import { saveGameState, loadGameState, deleteGameState } from './game-store.mjs';
 
-const PORT = Number(process.env.PORT || 4100);
+const PORT = Number(process.env.PORT || 8788);
 
 function sendJSON(res, statusCode, body) {
   const payload = JSON.stringify(body);

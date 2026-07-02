@@ -1,4 +1,4 @@
-const KATAGO_SERVER_URL = process.env.KATAGO_SERVER_URL || 'http://localhost:4001';
+const KATAGO_SERVER_URL = process.env.KATAGO_SERVER_URL || 'http://localhost:8789';
 
 // sendToKataGo forwards a request to the local katago-server and returns its
 // MoveResponse. This replaces the SQS enqueue + DynamoDB poll of the original

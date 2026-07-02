@@ -15,11 +15,11 @@ cleanup() {
 }
 trap cleanup EXIT INT TERM
 
-echo "[1/3] building & starting katago-server (:4001)"
+echo "[1/3] building & starting katago-server (:8789)"
 ( cd "$ROOT/katago-server" && go build -o katago-server . && ./katago-server ) &
 pids+=($!)
 
-echo "[2/3] starting backend (:4100)"
+echo "[2/3] starting backend (:8788)"
 ( cd "$ROOT/backend" && node server.js ) &
 pids+=($!)
 

@@ -9,8 +9,8 @@ UI와 게임 기능은 원본 `baduk-game`을 그대로 사용하며, AWS 전송
 ```mermaid
 graph LR
   U["사용자 브라우저"] -->|"http://localhost:5173"| FE["frontend<br/>React + Vite :5173"]
-  FE -->|"/api proxy"| BE["backend<br/>Node http :4100"]
-  BE -->|"POST /genmove<br/>HTTP"| KS["katago-server<br/>Go :4001"]
+  FE -->|"/api proxy"| BE["backend<br/>Node http :8788"]
+  BE -->|"POST /genmove<br/>HTTP"| KS["katago-server<br/>Go :8789"]
   KS -->|"GTP"| KG["katago<br/>로컬 엔진"]
   BE -->|"게임 상태 저장·로드"| FS[("backend/data<br/>JSON 파일")]
 ```
@@ -61,10 +61,10 @@ bash scripts/dev.sh
 ### 개별 실행
 
 ```bash
-# KataGo 서버 (:4001)
+# KataGo 서버 (:8789)
 cd katago-server && go build -o katago-server . && ./katago-server
 
-# 백엔드 (:4100)
+# 백엔드 (:8788)
 cd backend && node server.js
 
 # 프론트엔드 (:5173)

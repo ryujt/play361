@@ -7,6 +7,8 @@
 
 UI와 게임 기능은 원본 `play361.com`을 그대로 사용하며, AWS 전송 계층만 로컬 HTTP로 치환했다.
 
+![play361 AI 바둑 대국 화면](docs/images/game-screenshot.png)
+
 ## 구조
 
 ```mermaid

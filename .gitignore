@@ -26,3 +26,6 @@ logs/
 Thumbs.db
 .vscode/
 .idea/
+
+# mdview 녹화 (로컬 전용)
+mdview-recordings/

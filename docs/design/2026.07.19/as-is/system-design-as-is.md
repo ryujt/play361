@@ -146,7 +146,7 @@ Object: User, GameUI, GameHook, RuleEngine, RelayGateway, BackendAPI, KataGoEngi
 
 User.On착수 --> GameHook.HandleIntersection
 GameHook.HandleIntersection --> RuleEngine.TryPlace
-RuleEngine.TryPlace.false --> GameHook.HandleIntersection.result
+RuleEngine.TryPlace.false
 RuleEngine.TryPlace.true --> GameHook.RequestAI
 GameHook.RequestAI --> RelayGateway.RequestAIMove
 RelayGateway.RequestAIMove --> BackendAPI.HandleGenmove
@@ -162,7 +162,7 @@ RelayGateway.SaveGame --> BackendAPI.HandleGameSave
 BackendAPI.HandleGameSave --> GameFileStore.SaveGameState
 ```
 
-- 사용자가 놓은 수를 GameHook 이 RuleEngine 으로 검증하고, 불법 수면 조용히 무시한다.
+- 사용자가 놓은 수를 GameHook 이 RuleEngine 으로 검증한다. 불법 수(`false`)는 후속 흐름 없이 그대로 무시된다(화살표 없는 분기 — 화면 무반응).
 - 합법 수면 GameHook 이 전체 수순을 GTP 좌표로 바꿔 RelayGateway → BackendAPI → KataGoEngine 체인으로 AI 수를 받아온다.
 - AI 응답이 좌표면 다시 RuleEngine 으로 반영하고, 패스·기권이면 종료 판정으로 흐른다.
 - 어떤 경로든 상태가 바뀌면 1초 뒤 저장 체인이 파일까지 이어진다.

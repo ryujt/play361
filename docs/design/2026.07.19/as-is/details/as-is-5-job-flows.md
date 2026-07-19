@@ -2,7 +2,7 @@
 
 > 대상: 핵심 문서 [§5 Job Flow Diagram](../system-design-as-is.md)
 > 근거: [_evidence-brief.md](../../_evidence-brief.md) §4 method-R 깊이 사전판정 (매크로·시스템·모듈·상세 각 계층의 코드 도달 범위)
-> 표기 주의: 코드상 한 함수 안의 인라인 분기를 흐름으로 드러내야 할 때는 `HandleAIResult` 처럼 메서드 경계로 승격해 표기했다(해당 표기마다 명시). 그 외 이름은 실제 코드 함수명을 따른다.
+> 표기 주의: 코드상 한 함수 안의 인라인 분기를 흐름으로 드러내야 할 때는 `HandleAIResult` 처럼 메서드 경계로 승격해 표기했다(해당 표기마다 명시). 그 외 이름은 실제 코드 함수명을 따른다. 화살표 없는 단독 분기 줄(예: `RuleEngine.TryPlace.false`)은 후속 흐름이 없는 무시 분기다(job-flow-diagram-guide §무시 분기 표기).
 
 ## 1. 매크로 계층 — 시스템 경계
 
@@ -32,7 +32,7 @@ Object: User, GameUI, GameHook, RuleEngine, CoordConverter, RelayGateway, Backen
 
 User.On착수 --> GameHook.HandleIntersection
 GameHook.HandleIntersection --> RuleEngine.TryPlace
-RuleEngine.TryPlace.false --> GameHook.HandleIntersection.result
+RuleEngine.TryPlace.false
 RuleEngine.TryPlace.true --> GameHook.RequestAI
 GameHook.RequestAI --> CoordConverter.ToGTP
 CoordConverter.ToGTP.result --> RelayGateway.RequestAIMove
@@ -44,7 +44,7 @@ RelayGateway.HandleTimeout --> GameUI.message.재시도토스트
 RelayGateway.RequestAIMove.result --> GameHook.HandleAIResult
 GameHook.HandleAIResult.자동기권 --> GameUI.message.기권종료오버레이
 GameHook.HandleAIResult.패스기권 --> GameHook.ApplyAIPass
-GameHook.ApplyAIPass.result --> GameUI.message.종료또는턴전환
+GameHook.ApplyAIPass --> GameUI.message.종료또는턴전환
 GameHook.HandleAIResult.좌표 --> CoordConverter.FromGTP
 CoordConverter.FromGTP.result --> RuleEngine.TryPlace
 RuleEngine.TryPlace.false --> GameUI.message.오류표시
